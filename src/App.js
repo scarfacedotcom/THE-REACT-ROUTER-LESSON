@@ -1,5 +1,5 @@
 import './App.css'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 // page components
 import Home from './pages/Home'
@@ -9,23 +9,17 @@ import Contact from './pages/Contact'
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      <Router>
         <nav>
           <h1>My Articles</h1>
         </nav>
 
         <Routes>
-          <Route path="/">
-            <Home />  
-          </Route>
-          <Route path="/about">
-            <About />  
-          </Route>
-          <Route path="/contact">
-            <Contact />  
-          </Route>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
-      </BrowserRouter>
+      </Router>
     </div>
   );
 }
