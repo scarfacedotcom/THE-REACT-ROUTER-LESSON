@@ -1,19 +1,22 @@
 import { useEffect } from "react"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { useFetch } from "../hooks/useFetch"
 
 export default function Article() {
-  // const params = useParams()
   const { id } = useParams()
   const url = 'http://localhost:3000/articles/' + id
   const { data: article, isPending, error } = useFetch(url)
+  // const history = useHistory()
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (error) {
-      // redirect
-      
+      setTimeout(() => {
+        // history.goBack()
+        navigate('/')
+      }, 2000)
     }
-  },[error])
+  }, [error, history])
 
   return (
     <div>
