@@ -16,7 +16,7 @@ export default function Article() {
         navigate('/')
       }, 2000)
     }
-  }, [error, history])
+  }, [error, navigate])
 
   return (
     <div>
